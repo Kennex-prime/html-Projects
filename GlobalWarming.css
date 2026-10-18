@@ -1,0 +1,242 @@
+
+/* Apply consistent sizing to every element */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main website background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #e8f5e9,
+        #ffffff,
+        #dcedc8
+    );
+    color: #26382b;
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+/* Website heading */
+.header {
+    background-color: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.header h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.header p {
+    margin-top: 8px;
+    color: #e8f5e9;
+}
+
+/* Sidebar and main content layout */
+.website-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #c8e6c9;
+    box-shadow: 0 4px 12px #1b5e2012;
+}
+
+.sidebar h2 {
+    color: #1b5e20;
+    margin-bottom: 15px;
+}
+
+/* Topic buttons in the sidebar */
+#topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.topic-button {
+    width: 100%;
+    text-align: left;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background-color: #f1f8e9;
+    color: #285c2b;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.topic-button:hover {
+    background-color: #dcedc8;
+}
+
+.topic-button.active {
+    background-color: #2e7d32;
+    color: white;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.topic-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #c8e6c9;
+    box-shadow: 0 4px 12px #1b5e2012;
+    min-height: 350px;
+}
+
+.topic-label {
+    color: #388e3c;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.topic-card h2 {
+    color: #1b5e20;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+#topic-content p {
+    margin-bottom: 15px;
+}
+
+#topic-content ul {
+    padding-left: 25px;
+    margin: 10px 0 20px;
+}
+
+#topic-content li {
+    margin-bottom: 8px;
+}
+
+/* Previous and Next buttons */
+.navigation-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.navigation-buttons button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.navigation-buttons button:hover:not(:disabled) {
+    background-color: #1b5e20;
+}
+
+.navigation-buttons button:disabled {
+    background-color: #c5d5c5;
+    color: #526452;
+    cursor: not-allowed;
+}
+
+#page-number {
+    font-size: 14px;
+    color: #4b604e;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px 10px;
+    color: #315536;
+}
+
+.footer a {
+    display: inline-block;
+    margin: 12px 0;
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    color: #388e3c;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #607563;
+    margin-top: 10px;
+}
+
+/* Keyboard accessibility */
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #f9a825;
+    outline-offset: 3px;
+}
+
+/* Make the website fit smaller screens */
+@media (max-width: 750px) {
+    .website-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    #topic-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .topic-card {
+        padding: 22px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .navigation-buttons {
+        flex-wrap: wrap;
+    }
+
+    .navigation-buttons button {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    #topic-list {
+        grid-template-columns: 1fr;
+    }
+}
